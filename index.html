@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mark Holder | RE/MAX Masters</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    background-color: #000;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  .card {
+    width: 800px;
+    height: 600px;
+    background-color: #000;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(255, 255, 255, 0.25);
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60%;
+    position: relative;
+  }
+
+  .header img.balloon {
+    position: absolute;
+    top: 40px;
+    left: 60px;
+    width: 70px;
+  }
+
+  .header .remax {
+    font-size: 150px;
+    font-weight: 900;
+    letter-spacing: -5px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+  }
+
+  .header .re {
+    transform: skew(-8deg);
+  }
+
+  .header .max {
+    transform: skew(8deg);
+  }
+
+  .header img.profile {
+    height: 220px;
+    width: auto;
+    border-radius: 0;
+    margin: 0 20px;
+    z-index: 2;
+  }
+
+  .details {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 60px;
+    font-size: 16px;
+  }
+
+  .left, .right {
+    width: 45%;
+  }
+
+  .left h2 {
+    margin: 0;
+    font-weight: 700;
+  }
+
+  .left h3 {
+    margin-top: 5px;
+    font-weight: 400;
+    color: #cfcfcf;
+  }
+
+  .info {
+    margin-top: 20px;
+    line-height: 1
+
