@@ -95,6 +95,27 @@
     .details a:hover {
       color: #ff0000;
     }
+
+    /* Add to Contacts button */
+    .add-contact-btn {
+      background: #c41e3a;
+      color: #fff;
+      border: none;
+      padding: 12px 25px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 15px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: background 0.3s;
+    }
+
+    .add-contact-btn:hover {
+      background: #a01628;
+    }
   </style>
 </head>
 <body>
@@ -105,16 +126,48 @@
       <div class="photo"></div>
       <div class="max">MAX</div>
     </div>
+
     <div class="details">
       <div><strong>Mark Holder</strong></div>
-      <div>RE/MAX Masters | Real Estate Agent</div>
-      <div><a href="tel:+27821234567">+27 82 123 4567</a></div>
-      <div><a href="mailto:markholder@email.com">markholder@email.com</a></div>
-      <div><a href="https://remax.co.za">www.remax.co.za</a></div>
+      <div>Property Practitioner | RE/MAX Masters</div>
+      <div><a href="tel:+27720372480">📱 072 037 2480</a></div>
+      <div><a href="mailto:markholder@remax-masters.co.za">✉️ markholder@remax-masters.co.za</a></div>
+      <div><a href="https://www.remax-masters.co.za" target="_blank">🌐 www.remax-masters.co.za</a></div>
+
+      <button class="add-contact-btn" onclick="downloadVCard()">
+        📇 Add to Contacts
+      </button>
     </div>
   </div>
+
+  <script>
+    function downloadVCard() {
+      const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:Mark Holder
+N:Holder;Mark;;;
+TITLE:Property Practitioner
+ORG:RE/MAX Masters
+TEL;TYPE=CELL:+27720372480
+EMAIL:markholder@remax-masters.co.za
+URL:https://www.remax-masters.co.za
+ADR;TYPE=WORK:;;Block B, Rock Cottage Office Park, Cnr Johan Voster & Christian de Wet;Weltevreden Park;;;South Africa
+END:VCARD`;
+
+      const blob = new Blob([vcard], { type: 'text/vcard' });
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'Mark_Holder_REMAX.vcf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    }
+  </script>
 </body>
 </html>
+
 
 
 
