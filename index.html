@@ -1,101 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mark Holder | RE/MAX Masters</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
-<style>
-  body {
-    margin: 0;
-    background-color: #000;
-    font-family: 'Montserrat', sans-serif;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mark Holder | RE/MAX Digital Card</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
 
-  .card {
-    width: 800px;
-    height: 600px;
-    background-color: #000;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
-    overflow: hidden;
-    position: relative;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-  }
+    body {
+      background-color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
 
-  .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(255, 255, 255, 0.25);
-  }
+    .card {
+      position: relative;
+      width: 800px;
+      height: 600px;
+      background-color: #000;
+      color: white;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
 
-  .header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 60%;
-    position: relative;
-  }
+    .card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.35);
+    }
 
-  .header img.balloon {
-    position: absolute;
-    top: 40px;
-    left: 60px;
-    width: 70px;
-  }
+    /* RE/MAX text with inward slant */
+    .brand {
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 100px;
+      letter-spacing: 2px;
+    }
 
-  .header .remax {
-    font-size: 150px;
-    font-weight: 900;
-    letter-spacing: -5px;
-    color: #fff;
-    display: flex;
-    align-items: center;
-  }
+    .re {
+      color: white;
+      transform: skew(-10deg);
+      transition: text-shadow 0.5s ease;
+    }
 
-  .header .re {
-    transform: skew(-8deg);
-  }
+    .max {
+      color: white;
+      transform: skew(10deg);
+      transition: text-shadow 0.5s ease;
+    }
 
-  .header .max {
-    transform: skew(8deg);
-  }
+    .brand:hover .re,
+    .brand:hover .max {
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    }
 
-  .header img.profile {
-    height: 220px;
-    width: auto;
-    border-radius: 0;
-    margin: 0 20px;
-    z-index: 2;
-  }
+    /* Profile image between RE and MAX */
+    .photo {
+      width: 140px;
+      height: 140px;
+      margin: 0 20px;
+      background: url('PNGProfile.png') center/cover no-repeat;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+    }
 
-  .details {
-    display: flex;
-    justify-content: space-between;
-    padding: 40px 60px;
-    font-size: 16px;
-  }
+    /* Balloon logo in top-left */
+    .logo {
+      position: absolute;
+      top: 25px;
+      left: 25px;
+      width: 120px;
+      height: auto;
+    }
 
-  .left, .right {
-    width: 45%;
-  }
+    /* Contact details */
+    .details {
+      position: absolute;
+      bottom: 40px;
+      left: 60px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 18px;
+      line-height: 1.8;
+    }
 
-  .left h2 {
-    margin: 0;
-    font-weight: 700;
-  }
+    .details a {
+      color: #ffffff;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
 
-  .left h3 {
-    margin-top: 5px;
-    font-weight: 400;
-    color: #cfcfcf;
-  }
-
-  .info {
-    margin-top: 20px;
-    line-height: 1
-
+    .details a:hover {
+      color: #ff0000;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img src="Baloon-logo.png" alt="RE/MAX Balloon" class="logo" />
+    <div class="brand">
+      <div class="re">RE</div>
+      <div class="photo"></div>
+      <div class="max">MAX</div>
+    </div>
+    <div class="details">
+      <div><strong>Mark Holder</strong></div>
+      <div>RE/MAX Masters | Real Estate Agent</div>
+      <div><a href="tel:+27821234567">+27 82 123 4567</a></div>
+      <div><a href="mailto:markholder@email.com">markholder@email.com</a></div>
+      <div><a href="https://remax.co.za">www.remax.co.za</a></div>
+    </div>
+  </div>
+</body>
+</html>
