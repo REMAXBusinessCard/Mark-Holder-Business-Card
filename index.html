@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mark Holder | RE/MAX Digital Card</title>
+  <title>Mark Holder | RE/MAX Business Card</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
 
@@ -23,17 +23,24 @@
       background-color: #000;
       color: white;
       overflow: hidden;
-      border-radius: 20px;
-      box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
     }
 
     .card:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 40px rgba(255, 255, 255, 0.35);
+      transform: scale(1.02);
     }
 
-    /* RE/MAX text with inward slant */
+    /* Balloon logo */
+    .logo {
+      position: absolute;
+      top: 25px;
+      left: 25px;
+      width: 120px;
+      height: auto;
+    }
+
+    /* RE/MAX text */
     .brand {
       position: absolute;
       top: 45%;
@@ -51,40 +58,25 @@
     .re {
       color: white;
       transform: skew(-10deg);
-      transition: text-shadow 0.5s ease;
     }
 
     .max {
       color: white;
-      transform: skew(10deg);
-      transition: text-shadow 0.5s ease;
+      transform: skew(-10deg);
     }
 
-    .brand:hover .re,
-    .brand:hover .max {
-      text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
-    }
-
-    /* Profile image between RE and MAX */
+    /* Photo between RE and MAX, no border or shadow */
     .photo {
-      width: 140px;
-      height: 140px;
+      width: 150px;
+      height: 150px;
       margin: 0 20px;
       background: url('PNGProfile.png') center/cover no-repeat;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
     }
 
-    /* Balloon logo in top-left */
-    .logo {
-      position: absolute;
-      top: 25px;
-      left: 25px;
-      width: 120px;
-      height: auto;
-    }
-
-    /* Contact details */
+    /* Contact info */
     .details {
       position: absolute;
       bottom: 40px;
@@ -123,3 +115,4 @@
   </div>
 </body>
 </html>
+
