@@ -65,7 +65,7 @@
       transform: skew(-10deg);
     }
 
-    /* Photo between RE and MAX, no border or shadow */
+    /* Photo between RE and MAX, blends into background */
     .photo {
       width: 150px;
       height: 150px;
@@ -96,31 +96,39 @@
       color: #ff0000;
     }
 
-    /* Add to Contacts button */
+    /* Add to Contacts button (top right) */
     .add-contact-btn {
-      background: #c41e3a;
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      background: #E31837; /* RE/MAX Red */
       color: #fff;
       border: none;
       padding: 12px 25px;
       font-size: 16px;
       font-weight: bold;
-      border-radius: 5px;
+      border-radius: 6px;
       cursor: pointer;
-      margin-top: 15px;
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      transition: background 0.3s;
+      gap: 8px;
+      transition: background 0.3s, transform 0.2s;
     }
 
     .add-contact-btn:hover {
-      background: #a01628;
+      background: #b2122b;
+      transform: scale(1.05);
     }
   </style>
 </head>
 <body>
   <div class="card">
     <img src="Baloon-logo.png" alt="RE/MAX Balloon" class="logo" />
+
+    <button class="add-contact-btn" onclick="downloadVCard()">
+      📇 Add to Contacts
+    </button>
+
     <div class="brand">
       <div class="re">RE</div>
       <div class="photo"></div>
@@ -133,10 +141,6 @@
       <div><a href="tel:+27720372480">📱 072 037 2480</a></div>
       <div><a href="mailto:markholder@remax-masters.co.za">✉️ markholder@remax-masters.co.za</a></div>
       <div><a href="https://www.remax-masters.co.za" target="_blank">🌐 www.remax-masters.co.za</a></div>
-
-      <button class="add-contact-btn" onclick="downloadVCard()">
-        📇 Add to Contacts
-      </button>
     </div>
   </div>
 
@@ -167,6 +171,8 @@ END:VCARD`;
   </script>
 </body>
 </html>
+
+
 
 
 
