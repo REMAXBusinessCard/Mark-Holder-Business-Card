@@ -1,153 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mark Holder | RE/MAX Business Card</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: black;
-      color: white;
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      height: 100vh;
-      overflow-x: hidden;
-    }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Mark Holder | RE/MAX Digital Card</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
 
-    .card {
-      width: 100%;
-      max-width: 420px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 25px 10px 40px 10px;
-      box-sizing: border-box;
-    }
+  :root{
+    --red: #e31837;
+    --white: #ffffff;
+    --muted: #cfcfcf;
+  }
 
-    .balloon {
-      width: 100px;
-      margin-top: 20px;
-    }
+  html,body{height:100%;margin:0}
+  body{
+    background:#000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family: "Montserrat", Arial, sans-serif;
+    color:var(--white);
+  }
 
-    .profile-img {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-top: 20px;
-      border: none;
-    }
+  /* Card container - vertical / mobile-first */
+  .card{
+    width:90vw;
+    max-width:420px;
+    height:90vh;
+    max-height:760px;
+    background:#000;
+    border-radius:14px;
+    padding:20px;
+    box-sizing:border-box;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:14px;
+    position:relative;
+  }
 
-    .remax {
-      margin-top: 20px;
-      font-size: 42px;
-      font-weight: 900;
-      letter-spacing: -1px;
-      text-transform: uppercase;
-      color: white;
-      transform: skewX(-10deg);
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      gap: 2px;
-    }
+  /* Balloon top-left */
+  .balloon{
+    position:absolute;
+    top:18px;
+    left:18px;
+    width:88px;
+    height:auto;
+    z-index:5;
+  }
 
-    .re {
-      color: white;
-    }
+  /* RE / photo / MAX row (centered) */
+  .brand-wrap{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:18px;
+    margin-top:6px;
+  }
 
-    .max {
-      color: white;
-      transform: skewX(10deg);
-      position: relative;
-    }
+  .text-large{
+    font-size:56px;
+    font-weight:900;
+    line-height:1;
+    color:var(--white);
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    letter-spacing:0;
+  }
 
-    .max sup {
-      font-size: 0.4em;
-      position: absolute;
-      top: -0.6em;
-      right: -0.6em;
-    }
+  .re{
+    transform: skewX(-8deg);
+    display:inline-block;
+    padding:0 6px;
+  }
 
-    .info {
-      text-align: center;
-      margin-top: 15px;
-    }
+  .max{
+    transform: skewX(8deg);
+    display:inline-block;
+    padding:0 6px;
+    position:relative;
+  }
 
-    .info h2 {
-      font-size: 24px;
-      margin: 10px 0 5px;
-      font-weight: bold;
-    }
+  /* trademark - small and skewed to match slant */
+  .tm {
+    position:absolute;
+    top:-8px;
+    right:-12px;
+    font-size:12px;
+    transform: skewX(-8deg);
+    color:var(--white);
+  }
 
-    .info p {
-      margin: 4px 0;
-      font-size: 16px;
-      color: #ccc;
-    }
+  /* photo - no frame, blends into black */
+  .photo {
+    width:140px;
+    height:140px;
+    background: center/cover no-repeat url('PNGProfile.png');
+    border-radius:0;
+    box-shadow:none;
+  }
 
-    .contact-button {
-      margin-top: 25px;
-      background-color: white;
-      color: black;
-      border: none;
-      border-radius: 30px;
-      padding: 12px 30px;
-      font-size: 16px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
+  /* details */
+  .details{
+    text-align:center;
+    margin-top:6px;
+    color:var(--muted);
+    font-size:15px;
+    line-height:1.5;
+  }
 
-    .contact-button:hover {
-      background-color: #e4002b;
-      color: white;
-    }
+  .actions{
+    margin-top:auto;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    align-items:center;
+  }
 
-    footer {
-      margin-top: auto;
-      text-align: center;
-      padding: 20px 0;
-      font-size: 12px;
-      color: #777;
-    }
-  </style>
+  .btn{
+    width:82%;
+    max-width:320px;
+    background:var(--red);
+    color:var(--white);
+    border:0;
+    padding:12px 18px;
+    border-radius:10px;
+    font-weight:700;
+    font-size:16px;
+    cursor:pointer;
+  }
+
+  .btn.secondary{
+    background:#222;
+    border:1px solid rgba(255,255,255,0.06);
+  }
+
+  footer{
+    margin-top:10px;
+    color:#666;
+    font-size:12px;
+    text-align:center;
+  }
+
+  @media(min-width:900px){
+    .card{max-width:420px; max-height:760px}
+    .text-large{font-size:64px}
+    .photo{width:170px;height:170px}
+  }
+</style>
 </head>
 <body>
+  <div class="card" role="article" aria-label="Mark Holder RE/MAX digital card">
+    <img class="balloon" src="Baloon-logo.png" alt="RE/MAX balloon">
 
-  <div class="card">
-    <img src="Baloon-logo.png" alt="RE/MAX Balloon" class="balloon">
-    <img src="PNGProfile.png" alt="Profile Photo" class="profile-img">
+    <!-- RE / PHOTO / MAX -->
+    <div class="brand-wrap" role="img" aria-label="RE MAX logo with photo">
+      <div class="text-large re">RE</div>
 
-    <div class="remax">
-      <span class="re">RE/</span>
-      <span class="max">MAX<sup>®</sup></span>
+      <div class="photo" aria-hidden="true"></div>
+
+      <div style="position:relative;">
+        <div class="text-large max">MAX</div>
+        <div class="tm" aria-hidden="true">®</div>
+      </div>
     </div>
 
-    <div class="info">
-      <h2>Mark Holder</h2>
-      <p>Property Professional</p>
-      <p>RE/MAX Masters</p>
-      <p>+27 82 556 1234</p>
-      <p>mark.holder@remaxmasters.co.za</p>
+    <!-- Info -->
+    <div class="details" role="list">
+      <div role="listitem" style="font-weight:800;color:var(--white);font-size:18px">Mark Holder</div>
+      <div role="listitem">Property Practitioner | RE/MAX Masters</div>
+      <div role="listitem"><a href="tel:+27720372480" style="color:inherit;text-decoration:none">📱 072 037 2480</a></div>
+      <div role="listitem"><a href="mailto:markholder@remax-masters.co.za" style="color:inherit;text-decoration:none">✉️ markholder@remax-masters.co.za</a></div>
+      <div role="listitem"><a href="https://www.remax-masters.co.za" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">🌐 www.remax-masters.co.za</a></div>
     </div>
 
-    <button class="contact-button" onclick="window.location.href='MarkHolder.vcf'">
-      Add to Contacts
-    </button>
+    <!-- Actions -->
+    <div class="actions">
+      <button class="btn" onclick="downloadVCard()">📇 Add to Contacts</button>
+      <button class="btn secondary" onclick="showQR()">🔳 Show QR (website)</button>
+    </div>
+
+    <footer>© Mark Holder — RE/MAX Masters</footer>
   </div>
 
-  <footer>
-    © 2025 Mark Holder | RE/MAX Masters
-  </footer>
+  <!-- QR overlay -->
+  <div id="qrOverlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);align-items:center;justify-content:center;z-index:9999;">
+    <div style="text-align:center">
+      <img id="qrImg" alt="QR code" style="width:250px;height:250px;margin-bottom:18px;border-radius:8px;background:#fff" />
+      <div style="display:flex;gap:10px;justify-content:center">
+        <button onclick="downloadVCard()" class="btn" style="width:auto;padding:10px 16px">Download vCard</button>
+        <button onclick="closeQR()" class="btn secondary" style="width:auto;padding:10px 16px">Close</button>
+      </div>
+    </div>
+  </div>
 
+<script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+<script>
+  function downloadVCard(){
+    const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:Mark Holder
+N:Holder;Mark;;;
+TITLE:Property Practitioner
+ORG:RE/MAX Masters
+TEL;TYPE=CELL:+27720372480
+EMAIL:markholder@remax-masters.co.za
+URL:https://www.remax-masters.co.za
+ADR;TYPE=WORK:;;Block B, Rock Cottage Office Park, Cnr Johan Voster & Christian de Wet;Weltevreden Park;;;South Africa
+END:VCARD`;
+    const blob = new Blob([vcard], {type:'text/vcard'});
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'MarkHolder.vcf';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(a.href);
+  }
+
+  function showQR(){
+    const overlay = document.getElementById('qrOverlay');
+    const qrImg = document.getElementById('qrImg');
+    QRCode.toDataURL('https://www.remax-masters.co.za', {width:600}, function(err,url){
+      if(!err){ qrImg.src = url; overlay.style.display='flex'; overlay.style.alignItems='center'; overlay.style.justifyContent='center'; }
+    });
+  }
+  function closeQR(){ document.getElementById('qrOverlay').style.display='none'; }
+</script>
 </body>
 </html>
+
+
 
 
 
